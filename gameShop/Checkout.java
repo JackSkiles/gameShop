@@ -39,11 +39,18 @@ public class Checkout {
 			skyrim.price = skyrim.price * .5;
 		}
 		
-		System.out.println("Welcome to the gameshop, please make a selection:");
-		System.out.println("1: purchase games");
-		System.out.println("2: check stock");
-		System.out.println("3: leave");
-		String menu1 = user.nextLine();
+		boolean done = false;
 		
+		while(done == false) {
+			System.out.println("Welcome to the gameshop, please make a selection:");
+			System.out.println("1: purchase games");
+			System.out.println("2: check stock");
+			System.out.println("3: leave");
+			String menu1 = user.nextLine();
+			if(menu1.equals("1")) {
+				System.out.println(skyrim.title + ' ' + skyrim.price);
+				System.out.println(breathOftheWild.title + ' ' + breathOftheWild.price);
+			}
+		}
 	}
 }
