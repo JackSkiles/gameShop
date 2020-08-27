@@ -72,6 +72,9 @@ public class Checkout {
 			} else if(menu1.equals("2")) {
 				System.out.println(skyrim.title + ": In stock: " + skyrim.stock);
 				System.out.println(breathOftheWild.title + ": In stock: " + breathOftheWild.stock);
+			} else if(menu1.equals("3")) {
+				System.out.println("Have a good day!");
+				break;
 			}
 		}
 	}
