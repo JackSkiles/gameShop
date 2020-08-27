@@ -43,6 +43,8 @@ public class Checkout {
 		boolean done2 = false;
 		
 		while(done == false) {
+			System.out.println("You have $" + wallet + " left.");
+			System.out.println();
 			System.out.println("Welcome to the gameshop, please make a selection:");
 			System.out.println("1: purchase games");
 			System.out.println("2: check stock");
@@ -50,6 +52,8 @@ public class Checkout {
 			String menu1 = user.nextLine();
 			if(menu1.equals("1")) {
 				while(done2 == false) {
+					System.out.println("You have " + wallet + " left.");
+					System.out.println();
 					System.out.println(skyrim.title + ' ' + skyrim.price);
 					System.out.println(breathOftheWild.title + ' ' + breathOftheWild.price);
 					System.out.println("Please select a game to purchase by entering its name:");
@@ -65,6 +69,9 @@ public class Checkout {
 					}
 					
 				}
+			} else if(menu1.equals("2")) {
+				System.out.println(skyrim.title + ": In stock: " + skyrim.stock);
+				System.out.println(breathOftheWild.title + ": In stock: " + breathOftheWild.stock);
 			}
 		}
 	}
