@@ -1,11 +1,15 @@
 package gameShop;
 import java.util.Calendar;
+import java.util.Scanner;
 
 
 public class Checkout {
 	public static void main(String[] args) {
+		Scanner user = new Scanner(System.in);
+		
 		games breathOftheWild = new games();
 		games skyrim = new games();
+		
 		Calendar day = Calendar.getInstance();
 		Calendar saleDay = Calendar.getInstance();
 		
@@ -34,7 +38,12 @@ public class Checkout {
 		if(skyrim.sale == true) {
 			skyrim.price = skyrim.price * .5;
 		}
-		System.out.println(skyrim.price);
+		
+		System.out.println("Welcome to the gameshop, please make a selection:");
+		System.out.println("1: purchase games");
+		System.out.println("2: check stock");
+		System.out.println("3: leave");
+		String menu1 = user.nextLine();
 		
 	}
 }
