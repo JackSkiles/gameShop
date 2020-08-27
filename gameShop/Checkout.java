@@ -30,7 +30,7 @@ public class Checkout {
 		breathOftheWild.stock = 3;
 		breathOftheWild.sale = false;
 		
-		
+		double wallet = 30;
 		
 		if(day.get(Calendar.DAY_OF_MONTH) == saleDay.get(Calendar.DAY_OF_MONTH) & day.get(Calendar.MONTH) == saleDay.get(Calendar.MONTH)) {
 			skyrim.sale = true;
@@ -40,6 +40,7 @@ public class Checkout {
 		}
 		
 		boolean done = false;
+		boolean done2 = false;
 		
 		while(done == false) {
 			System.out.println("Welcome to the gameshop, please make a selection:");
@@ -48,8 +49,22 @@ public class Checkout {
 			System.out.println("3: leave");
 			String menu1 = user.nextLine();
 			if(menu1.equals("1")) {
-				System.out.println(skyrim.title + ' ' + skyrim.price);
-				System.out.println(breathOftheWild.title + ' ' + breathOftheWild.price);
+				while(done2 == false) {
+					System.out.println(skyrim.title + ' ' + skyrim.price);
+					System.out.println(breathOftheWild.title + ' ' + breathOftheWild.price);
+					System.out.println("Please select a game to purchase by entering its name:");
+					String menu2 = user.nextLine();
+					if(menu2.equals(breathOftheWild.title)) {
+						breathOftheWild.stock--;
+						wallet = wallet - breathOftheWild.price;
+					} else if(menu2.equals(skyrim.title)){
+						skyrim.stock--;
+						wallet = wallet - skyrim.price;
+					} else if (menu2.equals("done")) {
+						done2 = true;
+					}
+					
+				}
 			}
 		}
 	}
