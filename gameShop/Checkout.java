@@ -68,6 +68,13 @@ public class Checkout {
 					}
 					System.out.println("Please select a game to purchase by entering its name:");
 					String menu2 = user.nextLine();
+					for(int i = 0; i  < gameList.size(); i++) {
+						Game = gameList.get(i);
+						if(menu2.equals(Game.title)) {
+							wallet = wallet - Game.price;
+							break;
+						};
+					}
 //					if(menu2.equals(breathOftheWild.title)) {
 //						if (wallet < breathOftheWild.price) {
 //							System.out.println("Not enough money");
