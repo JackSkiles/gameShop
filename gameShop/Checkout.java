@@ -1,14 +1,21 @@
 package gameShop;
 import java.util.Calendar;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 
 public class Checkout {
 	public static void main(String[] args) {
 		Scanner user = new Scanner(System.in);
 		
+		ArrayList<games> gameList = new ArrayList();
+		
 		games breathOftheWild = new games();
+		gameList.add(breathOftheWild);
 		games skyrim = new games();
+		gameList.add(skyrim);
+		games Game = new games();
+		
+		
 		
 		Calendar day = Calendar.getInstance();
 		Calendar saleDay = Calendar.getInstance();
@@ -41,6 +48,7 @@ public class Checkout {
 		
 		boolean done = false;
 		boolean done2 = false;
+	
 		
 		while(done == false) {
 			System.out.println("You have $" + wallet + " left.");
@@ -54,24 +62,26 @@ public class Checkout {
 				while(done2 == false) {
 					System.out.println("You have " + wallet + " left.");
 					System.out.println();
-					System.out.println(skyrim.title + ' ' + skyrim.price);
-					System.out.println(breathOftheWild.title + ' ' + breathOftheWild.price);
+					for(int i = 0; i  < gameList.size(); i++) {
+						Game = gameList.get(i);
+						System.out.println(Game.title);
+					}
 					System.out.println("Please select a game to purchase by entering its name:");
 					String menu2 = user.nextLine();
-					if(menu2.equals(breathOftheWild.title)) {
-						if (wallet < breathOftheWild.price) {
-							System.out.println("Not enough money");
-						} else {
-							breathOftheWild.stock--;
-							wallet = wallet - breathOftheWild.price;							
-						}
-					} else if(menu2.equals(skyrim.title))
-						if (wallet < skyrim.price) {
-							System.out.println("Not enough money");
-						} else {
-						skyrim.stock--;
-						wallet = wallet - skyrim.price;
-					} else if (menu2.equals("done")) {
+//					if(menu2.equals(breathOftheWild.title)) {
+//						if (wallet < breathOftheWild.price) {
+//							System.out.println("Not enough money");
+//						} else {
+//							breathOftheWild.stock--;
+//							wallet = wallet - breathOftheWild.price;							
+//						}
+//					} else if(menu2.equals(skyrim.title))
+//						if (wallet < skyrim.price) {
+//							System.out.println("Not enough money");
+//						} else {
+//						skyrim.stock--;
+//						wallet = wallet - skyrim.price;
+					if (menu2.equals("done")) {
 						done2 = true;
 					}
 					
