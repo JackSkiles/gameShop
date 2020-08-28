@@ -59,9 +59,16 @@ public class Checkout {
 					System.out.println("Please select a game to purchase by entering its name:");
 					String menu2 = user.nextLine();
 					if(menu2.equals(breathOftheWild.title)) {
-						breathOftheWild.stock--;
-						wallet = wallet - breathOftheWild.price;
-					} else if(menu2.equals(skyrim.title)){
+						if (wallet < breathOftheWild.price) {
+							System.out.println("Not enough money");
+						} else {
+							breathOftheWild.stock--;
+							wallet = wallet - breathOftheWild.price;							
+						}
+					} else if(menu2.equals(skyrim.title))
+						if (wallet < skyrim.price) {
+							System.out.println("Not enough money");
+						} else {
 						skyrim.stock--;
 						wallet = wallet - skyrim.price;
 					} else if (menu2.equals("done")) {
