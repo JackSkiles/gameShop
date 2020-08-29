@@ -71,8 +71,13 @@ public class Checkout {
 					for(int i = 0; i  < gameList.size(); i++) {
 						Game = gameList.get(i);
 						if(menu2.equals(Game.title)) {
-							wallet = wallet - Game.price;
-							break;
+							if (wallet < Game.price) {
+								System.out.println("Not enough money");
+							} else if(Game.stock == 0) {
+								System.out.println("None in stock");
+							} else {
+								wallet = wallet - Game.price;
+							}
 						};
 					}
 //					if(menu2.equals(breathOftheWild.title)) {
